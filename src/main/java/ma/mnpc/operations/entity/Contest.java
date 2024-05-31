@@ -14,7 +14,9 @@ import java.time.LocalDate;
 public class Contest {
     @Id
     private String id; //shortName + Year
+    @Column(length = 30)
     private String shortName;
+    @Column(length =200)
     private String fullName;
     private String description;
     private LocalDate officialContestDateStart;
@@ -28,6 +30,7 @@ public class Contest {
     private LocalDate confirmationByPaymentDeadline;
     private Long registrationFees;
     @Enumerated(EnumType.STRING)
+    @Column(length =20)
     private ContestStatus status;
     private Long officialTeamsSpots;
     private Long nonOfficialTeamsSpots;

@@ -14,6 +14,7 @@ import java.util.List;
 public class Team {
     @Id
     private Long id;
+    @Column(length =100)
     private String teamName;
     @OneToOne
     private Contest contest;
@@ -26,7 +27,9 @@ public class Team {
     @OneToOne
     private Contestant captain;
     private String paymentReceiptDoc;
-    private String participationStatus; //incompleted, disqualified; qualification round; official contest .. to think about the possible status
+    @Enumerated(EnumType.STRING)
+    @Column(length = 30)
+    private ParticipationStatus participationStatus;
     private Long qualificationRoundRank;
     private Long officialContestRank;
 }

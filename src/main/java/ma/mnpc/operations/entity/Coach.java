@@ -1,13 +1,11 @@
 package ma.mnpc.operations.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.Fetch;
 
 
 @Data
@@ -17,6 +15,7 @@ import lombok.experimental.SuperBuilder;
 @Entity
 public class Coach extends Users {
     @Enumerated(EnumType.STRING)
+    @Column(length = 20)
     private CoachStatus status;
     @ManyToOne
     private Institution institution;

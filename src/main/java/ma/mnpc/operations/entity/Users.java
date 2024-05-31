@@ -1,9 +1,6 @@
 package ma.mnpc.operations.entity;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,17 +16,25 @@ import java.time.LocalDate;
 public class Users {
     @Id
     private String cinID;
+    private String password;
+    @Column(length = 50)
     private String firstName;
+    @Column(length = 50)
     private String lastName;
     @Enumerated(EnumType.STRING)
+    @Column(length = 10)
     private Gender gender;
+    @Column(length = 50)
     private String emailAddress;
+    @Column(length = 30)
     private String phoneNumber;
     private LocalDate dateOfBirth;
     @Enumerated(EnumType.STRING)
+    @Column(length = 5)
     private TshirtSize tShirtSize;
 
     //Type to be checked later
+    @Column(length = 20)
     private String cinDocument;
     private String linkedInUrl;
 
